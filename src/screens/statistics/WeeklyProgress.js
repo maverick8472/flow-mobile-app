@@ -1,10 +1,10 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
-const Calendar = () => {
+const WeeklyProgess = props => {
   return (
     <View style={styles.container}>
-      <Text>Calendar</Text>
+      <Text>Weekly Progess</Text>
     </View>
   );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Calendar;
+export default WeeklyProgess;
