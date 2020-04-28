@@ -1,12 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import Screen from './src/screens/auth/Auth';
+import Screen from './src/screens/home/Home';
+import AppNavigation from './src/navigation/AppNavigation';
 
 export default function App() {
-  return (
-    <View>
-      {/* <Text>Flow Habit Tracking app!</Text> */}
-      <Screen />
-    </View>
-  );
+  return <AppNavigation />;
 }
