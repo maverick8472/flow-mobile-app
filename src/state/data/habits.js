@@ -74,3 +74,5 @@ const HABITS = [
     'Begin every morning by offering your spouse/partner a hug and saying, “I love you.”',
   ),
 ];
+
+export default HABITS;
