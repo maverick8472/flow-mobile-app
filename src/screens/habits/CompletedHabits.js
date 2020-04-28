@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const UsersHabits = props => {
+const CompletedHabits = props => {
   return (
     <View style={styles.container}>
-      <Text>UsersHabits</Text>
+      <Text>Completed Habits</Text>
     </View>
   );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UsersHabits;
+export default CompletedHabits;

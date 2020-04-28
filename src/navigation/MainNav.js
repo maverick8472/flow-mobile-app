@@ -2,9 +2,11 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../screens/home/Home';
-import UsersHabits from '../screens/habits/UsersHabits';
+import UsersHabits from '../screens/habits/CompletedHabits';
 import WeeklyProgess from '../screens/statistics/WeeklyProgress';
 import Habits from '../screens/resources/Habits';
+import HomeNav from './homeNav/HomeStackNav';
+import HabitsNav from './habitsNav/HabitsTopNav';
 
 const Main = createBottomTabNavigator();
 
@@ -35,8 +37,9 @@ export default function MainNav() {
       {/* <Main.Screen name="Habits" component={HabitsStack} />
       <Main.Screen name="Statistics" component={Statistics} />
       <Main.Screen name="Resources" component={ReasourcesStack} /> */}
-      <Main.Screen name="Home" component={Home} />
-      <Main.Screen name="Habits" component={UsersHabits} />
+      {/* <Main.Screen name="Home" component={Home} /> */}
+      <Main.Screen name="Home" component={HomeNav} />
+      <Main.Screen name="Habits" component={HabitsNav} />
       <Main.Screen name="Statistics" component={WeeklyProgess} />
       <Main.Screen name="Resources" component={Habits} />
     </Main.Navigator>
