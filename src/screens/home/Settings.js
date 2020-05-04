@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 const Settings = () => {
   return (
