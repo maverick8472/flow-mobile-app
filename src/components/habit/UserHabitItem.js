@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableNativeFeedback,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableNativeFeedback} from 'react-native';
 import Card from '../ui/Card';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HabitButton from '../ui/HabitButton';

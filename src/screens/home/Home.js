@@ -4,14 +4,19 @@ import CircleProgresBar from '../../components/ui/CircleProgres';
 import CircleButton from '../../components/ui/CircleButton';
 import HabitButton from '../../components/ui/HabitButton';
 import UserHabitItem from '../../components/habit/UserHabitItem';
+import CategoryPieChart from '../../components/ui/CategoryPieChart';
+import CATEGORIES from '../../state/data/categories';
+import CategoryListItem from '../../components/ui/CategoriListItem';
 
 const userHabits = [
-  {precentage: 30},
-  {precentage: 20},
-  {precentage: 40},
-  {precentage: 75},
-  {precentage: 65},
-  {precentage: 10},
+  {id: 1},
+  {id: 2},
+  {id: 3},
+  {id: 4},
+  {id: 5},
+  {id: 6},
+  {id: 7},
+  {id: 8},
 ];
 
 const Home = () => {
@@ -22,15 +27,33 @@ const Home = () => {
     //   {/* <HabitButton style={styles.habitButton} /> */}
     //   {/* <CircleProgresBar percentage={75} /> */}
     // </View>
-    <View>
+    <View style={styles.container}>
       <FlatList data={userHabits} renderItem={({item}) => <UserHabitItem />} />
     </View>
+    // <View>
+    //   <Text>Home</Text>
+    // </View>
   );
 };
 
+// const styles = StyleSheet.create({
+//   container: {},
+//   habitButton: {},
+// });
+
 const styles = StyleSheet.create({
-  container: {},
-  habitButton: {},
+  container: {
+    flexDirection: 'row',
+    // padding: ,
+  },
+  categoriesList: {
+    width: '40%',
+  },
+  categoryProgress: {
+    // justifyContent: 'space-around',
+    // alignItems: 'center',
+    width: '60%',
+  },
 });
 
 export default Home;

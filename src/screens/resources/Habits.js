@@ -1,20 +1,19 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
-import Colors from '../../styles/constants/Colors';
 import HabitItem from '../../components/habit/HabitItem';
 import Button from '../../components/ui/Button';
-import categories from '../../state/data/categories';
 import CategoryItem from '../../components/habit/CategoryItem';
+import CATEGORIES from '../../state/data/categories';
 
 const Habits = props => {
   const habits = useSelector(state => state.habits.habits);
   // console.log(habits);
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         style={styles.categories}
-        data={categories}
+        data={CATEGORIES}
         horizontal={true}
         renderItem={({item}) => (
           <CategoryItem name={item.name} icon={item.icon} color={item.color} />
@@ -46,8 +45,9 @@ const Habits = props => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    // alignItems: 'center',
+    // justifyContent: 'space-around',
+    flex: 1, // Ne kuzin zasto
   },
   categories: {
     paddingBottom: 5,

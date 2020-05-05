@@ -57,7 +57,7 @@ const HabitItem = props => {
 const styles = StyleSheet.create({
   habit: {
     height: 300,
-    margin: 20,
+    margin: 10,
   },
   touchable: {
     borderRadius: 10,
@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     height: '25%',
     paddingHorizontal: 20,
   },
-
   stats: {
     flexDirection: 'row',
     padding: 10,
