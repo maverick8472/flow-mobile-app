@@ -7,6 +7,7 @@ import WeeklyProgess from '../screens/statistics/WeeklyProgress';
 import Habits from '../screens/resources/Habits';
 import HomeNav from './homeNav/HomeStackNav';
 import HabitsNav from './habitsNav/HabitsTopNav';
+import ResourcesNav from './resourcesNav/ResourcesNav';
 
 const Main = createBottomTabNavigator();
 
@@ -41,7 +42,7 @@ export default function MainNav() {
       <Main.Screen name="Home" component={HomeNav} />
       <Main.Screen name="Habits" component={HabitsNav} />
       <Main.Screen name="Statistics" component={WeeklyProgess} />
-      <Main.Screen name="Resources" component={Habits} />
+      <Main.Screen name="Resources" component={ResourcesNav} />
     </Main.Navigator>
   );
 }

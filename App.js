@@ -1,4 +1,5 @@
 import React from 'react';
+import {StatusBar, View} from 'react-native';
 
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';

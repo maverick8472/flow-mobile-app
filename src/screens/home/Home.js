@@ -1,12 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import CircleProgresBar from '../../components/ui/CircleProgres';
 import CircleButton from '../../components/ui/CircleButton';
 import HabitButton from '../../components/ui/HabitButton';
 import UserHabitItem from '../../components/habit/UserHabitItem';
 import CategoryPieChart from '../../components/ui/CategoryPieChart';
 import CATEGORIES from '../../state/data/categories';
-import CategoryListItem from '../../components/ui/CategoriListItem';
+import CategoryListItem from '../../components/ui/CategoryListItem';
+import Card from '../../components/ui/Card';
 
 const userHabits = [
   {id: 1},
@@ -19,6 +20,20 @@ const userHabits = [
   {id: 8},
 ];
 
+// '1',
+// 'Take a walk',
+// 'https://cdn.pixabay.com/photo/2015/03/26/10/36/wood-691629__340.jpg',
+// 'Health',
+// 1,
+// 22,
+// 'Walking is a great way to improve or maintain your overall health. Just
+// 30 minutes every day can increase cardiovascular fitness, strengthen
+// bones, reduce excess body fat, and boost muscle power and endurance.
+// It can also reduce your risk of developing conditions such as
+// heart disease, type 2 diabetes, osteoporosis and some cancers.
+// Unlike some other forms of exercise, walking is free and doesn’t
+// require any special equipment or training.',
+
 const Home = () => {
   // const precentage = 40;
   return (
@@ -30,9 +45,7 @@ const Home = () => {
     <View style={styles.container}>
       <FlatList data={userHabits} renderItem={({item}) => <UserHabitItem />} />
     </View>
-    // <View>
-    //   <Text>Home</Text>
-    // </View>
+    // <Text>Home</Text>
   );
 };
 
@@ -53,6 +66,11 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-around',
     // alignItems: 'center',
     width: '60%',
+  },
+
+  image: {
+    width: '100%',
+    height: '100%',
   },
 });
 

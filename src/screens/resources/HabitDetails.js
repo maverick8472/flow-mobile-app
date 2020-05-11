@@ -3,6 +3,7 @@ import {Animated, StyleSheet, Text, View} from 'react-native';
 import Button from '../../components/ui/Button';
 import Card from '../../components/ui/Card';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import GoBack from '../../components/ui/GoBack';
 
 const HEADER_MAX_HEIGHT = 300;
 const HEADER_MIN_HEIGHT = 60;
@@ -21,7 +22,7 @@ const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 //   );
 // };
 
-const Calendar = () => {
+const HabitDetails = ({props, navigation}) => {
   const scrollY = new Animated.Value(0);
 
   const headerTranslate = scrollY.interpolate({
@@ -43,6 +44,12 @@ const Calendar = () => {
   const buttonTranslate = scrollY.interpolate({
     inputRange: [0, HEADER_SCROLL_DISTANCE],
     outputRange: [0, -HEADER_SCROLL_DISTANCE],
+    extrapolate: 'clamp',
+  });
+
+  const gobackTranslate = scrollY.interpolate({
+    inputRange: [0, HEADER_SCROLL_DISTANCE / 2, HEADER_SCROLL_DISTANCE],
+    outputRange: [0, 0, 0],
     extrapolate: 'clamp',
   });
 
@@ -163,6 +170,14 @@ const Calendar = () => {
         style={[styles.button, {transform: [{translateY: buttonTranslate}]}]}>
         <Button text="Accept" />
       </Animated.View>
+      <Animated.View
+        style={[styles.goBack, {transform: [{translateY: gobackTranslate}]}]}>
+        <GoBack
+          style={styles.gobackButton}
+          text="go back"
+          onPress={() => navigation.goBack()}
+        />
+      </Animated.View>
     </View>
   );
 };
@@ -176,6 +191,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#03A9F4',
     overflow: 'hidden',
     height: HEADER_MAX_HEIGHT,
+  },
+  goBack: {
+    height: 32,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    alignItems: 'flex-start',
+    position: 'absolute',
+    top: 5,
+    left: 1,
+    right: 0,
+  },
+  gobackButton: {
+    backgroundColor: '#03A9F4',
   },
   backgroundImage: {
     position: 'absolute',
@@ -215,7 +243,7 @@ const styles = StyleSheet.create({
     marginTop: 28,
   },
   button: {
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
     // marginTop: HEADER_MAX_HEIGHT,
     height: 32,
     alignItems: 'center',
@@ -269,4 +297,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Calendar;
+export default HabitDetails;

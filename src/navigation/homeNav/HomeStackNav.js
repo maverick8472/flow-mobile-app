@@ -44,7 +44,13 @@ export default function HomeNav({navigation}) {
         component={Home}
       />
       <Stack.Screen name="Settings" component={Settings} />
-      <Stack.Screen name="Calendar" component={Calendar} />
+      <Stack.Screen
+        name="Calendar"
+        component={Calendar}
+        // options={{
+        //   header: () => null,
+        // }}
+      />
     </Stack.Navigator>
   );
 }

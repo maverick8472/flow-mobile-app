@@ -7,7 +7,7 @@ import HabitButton from '../ui/HabitButton';
 const UserHabitItem = props => {
   return (
     <Card style={styles.userHabit}>
-      <View style={styles.touchable}>
+      <View>
         <TouchableNativeFeedback onPress={props.onSelect} useForeground>
           <View style={styles.container}>
             <View style={styles.leftIcons}>
@@ -37,10 +37,6 @@ const styles = StyleSheet.create({
   userHabit: {
     // height: 300,
     margin: 10,
-  },
-  touchable: {
-    borderRadius: 10,
-    overflow: 'hidden',
   },
   container: {
     flexDirection: 'row',

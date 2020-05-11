@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import {PieChart} from 'react-native-svg-charts';
 
 const CategoryPieChart = props => {
   let [label, setLabel] = useState();
+
+  useEffect(() => {
+    setLabel(props.category);
+  }, [props.category]);
 
   const data = props.keys.map((key, index) => {
     return {
@@ -13,9 +17,16 @@ const CategoryPieChart = props => {
       arc: {
         // outerRadius: 70 + values[index] + '%',
         padAngle: 0.03,
+        // outerRadius: label === key ? 105 : 100,
         outerRadius: label === key ? 105 : 100,
+        // outerRadius: label,
       },
-      onPress: () => setLabel((label = key)),
+      // onPress: () => setLabel((label = key)),
+      // onPress: () => props.activate(key),
+      onPress: () => {
+        setLabel((label = key));
+        props.activate(key);
+      },
     };
   });
 

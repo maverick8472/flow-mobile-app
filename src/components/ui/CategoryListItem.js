@@ -3,9 +3,9 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Colors from '../../styles/constants/Colors';
 import Category from '../../state/models/category';
 
-const CategoryListItem = ({color, text, onPress}) => {
+const CategoryListItem = ({color, text, activate}) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={() => activate(text)}>
       {/* <View style={{...styles.buttonContainer, backgroundColor: color}}> */}
       <View style={styles.buttonContainer}>
         <Text style={{...styles.buttonText, color: color}}>{text}</Text>

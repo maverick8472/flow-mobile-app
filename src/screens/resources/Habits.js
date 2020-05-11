@@ -6,7 +6,7 @@ import Button from '../../components/ui/Button';
 import CategoryItem from '../../components/habit/CategoryItem';
 import CATEGORIES from '../../state/data/categories';
 
-const Habits = props => {
+const Habits = ({props, navigation}) => {
   const habits = useSelector(state => state.habits.habits);
   // console.log(habits);
   return (
@@ -35,7 +35,16 @@ const Habits = props => {
             color={Colors.primary}
             onPress={() => {}}
           /> */}
-            <Button text="View Details" />
+            <Button
+              text="View Details"
+              onPress={() => {
+                navigation.navigate('HabitDetails', {
+                  area: item.name,
+                  area_id: item.id,
+                });
+              }}
+            />
+            <Button text="Add Habit" />
           </HabitItem>
         )}
       />
