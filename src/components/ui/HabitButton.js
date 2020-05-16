@@ -4,13 +4,14 @@ import CircleProgresBar from './CircleProgres';
 import CircleButton from './CircleButton';
 
 const HabitButton = props => {
+  
   return (
     <View style={styles.container}>
       <View style={styles.progresBar}>
-        <CircleProgresBar percentage={60} />
+        <CircleProgresBar percentage={props.item.progress} />
       </View>
       <View style={styles.circleButton}>
-        <CircleButton text={'Test'} />
+        <CircleButton text={props.item.habit} style={props.item.color} />
       </View>
     </View>
   );

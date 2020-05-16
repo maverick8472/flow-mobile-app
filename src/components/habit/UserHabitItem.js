@@ -17,8 +17,8 @@ const UserHabitItem = props => {
               <MaterialIcons name="chart-bar" size={30} />
             </View>
             <View style={styles.buttonContainer}>
-              <HabitButton />
-              <Text style={{fontWeight: 'bold'}}>25</Text>
+              <HabitButton item={props.item} />
+              <Text style={{fontWeight: 'bold'}}>{props.item.progress}</Text>
             </View>
             <View style={styles.reightIcons}>
               {/* <Text>Edit pencil</Text>

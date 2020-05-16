@@ -1,8 +1,6 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react';
-import {View, Text, StyleSheet, Dimensions, Easing} from 'react-native';
+import React, {useState, useEffect, useCallback} from 'react';
+import {View, Text, StyleSheet, Dimensions, Animated} from 'react-native';
 import Svg, {Defs, LinearGradient, Stop, Circle} from 'react-native-svg';
-import Animated from 'react-native-reanimated';
-const {interpolate, multiply} = Animated;
 
 const INITIAL_OFFSET = 25;
 const circleConfig = {
@@ -21,41 +19,29 @@ const circleConfig = {
 // const x = size / 2;
 // const y = size / 2;
 
+const HEADER_MAX_HEIGHT = 300;
+const HEADER_MIN_HEIGHT = 60;
+const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-
 const CircleProgresBar = ({props, percentage}) => {
   const [progressBar, setProgressBar] = useState(0);
-  const dashArray = circleConfig.radio * Math.PI * 2;
-  const dashOffset = dashArray - (dashArray * percentage) / 100;
-  // const [animation, setAnimation] = useState(new Animated.Value(0));
-  const animation = new Animated.Value(1);
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const [animation, setAnimation] = useState(new Animated.Value(0));
 
   useEffect(() => {
     Animated.timing(animation, {
-      useNativeDriver: true,
       toValue: percentage,
-      // duration: 10 * 1000,
-      duration: 10 * 500,
-      // duration: 500,
-      easing: Easing.linear,
+      duration: 500,
     }).start();
-    // console.log(animation);
-  }, [percentage]);
+  }, [animation, percentage]);
 
-  // const α = interpolate(animation, {
-  //   inputRange: [0, 1],
-  //   outputRange: [0, Math.PI * 2],
-  // });
-
-  // const strokeDashoffset = multiply(α, circleConfig.radio);
-  console.log(animation);
-  // const updatePercentage = useCallback(() => {
-  //   setTimeout(() => {
-  //     setProgressBar(progressBar + 1);
-  //   }, 30);
-  //   // setProgressBar(0);
-  // }, [progressBar]);
+  console.log(animation)
+  const updatePercentage = useCallback(() => {
+    setTimeout(() => {
+      setProgressBar(progressBar + 1);
+    }, 5);
+    // setProgressBar(0);
+  }, [progressBar]);
 
   //   useEffect(() => {
   //     if (percentage > 0) {
@@ -63,17 +49,17 @@ const CircleProgresBar = ({props, percentage}) => {
   //     }
   //   }, [percentage]);
 
-  // useEffect(() => {
-  //   if (percentage > 0) {
-  //     setProgressBar(0);
-  //   }
-  // }, [percentage]);
+  useEffect(() => {
+    if (percentage > 0) {
+      setProgressBar(0);
+    }
+  }, [percentage]);
 
-  // useEffect(() => {
-  //   if (progressBar < percentage) {
-  //     updatePercentage();
-  //   }
-  // }, [progressBar, percentage, updatePercentage]);
+  useEffect(() => {
+    if (progressBar < percentage) {
+      updatePercentage();
+    }
+  }, [progressBar, percentage, updatePercentage]);
 
   //   useEffect(() => {
   //     if (percentage > 0) {updatePercentage()}
@@ -113,10 +99,8 @@ const CircleProgresBar = ({props, percentage}) => {
         stroke="url(#grad)"
         // strokeDasharray="75 25"
         strokeWidth={2}
-        // strokeDasharray={50}
-        // strokeDashoffset={100 - animation}
-        strokeDasharray={dashArray}
-        strokeDashoffset={animation}
+        strokeDasharray={`${progressBar}, ${100 - progressBar}`}
+        strokeDashoffset={INITIAL_OFFSET}
       />
 
       <Defs>

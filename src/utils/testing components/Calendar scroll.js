@@ -183,11 +183,6 @@ export default class App extends Component {
 
     return (
       <View style={styles.fill}>
-        {/* <StatusBar
-          translucent
-          barStyle="light-content"
-          backgroundColor="rgba(0, 0, 0, 0.251)"
-        /> */}
         <Animated.ScrollView
           style={styles.fill}
           scrollEventThrottle={1}

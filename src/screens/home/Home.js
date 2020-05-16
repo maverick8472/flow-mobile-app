@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import {View, Text, StyleSheet, Image, Switch, FlatList} from 'react-native';
 import CircleProgresBar from '../../components/ui/CircleProgres';
 import CircleButton from '../../components/ui/CircleButton';
 import HabitButton from '../../components/ui/HabitButton';
@@ -8,31 +8,71 @@ import CategoryPieChart from '../../components/ui/CategoryPieChart';
 import CATEGORIES from '../../state/data/categories';
 import CategoryListItem from '../../components/ui/CategoryListItem';
 import Card from '../../components/ui/Card';
+import {TextInput} from 'react-native-gesture-handler';
+import CategoryItem from '../../components/habit/CategoryItemPick';
+import RadioButtons from '../../components/ui/RadioButtons2';
+
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Button from '../../components/ui/Button';
 
 const userHabits = [
-  {id: 1},
-  {id: 2},
-  {id: 3},
-  {id: 4},
-  {id: 5},
-  {id: 6},
-  {id: 7},
-  {id: 8},
+  {
+    id: '1',
+    habit: 'Take a walk',
+    category: 'Health',
+    color: '#50D25D',
+    progress: 35,
+  },
+  {
+    id: '2',
+    habit: 'Practice Gratitude',
+    category: 'Mind/Emo',
+    color: '#F05B2C',
+    progress: 40,
+  },
+  {
+    id: '3',
+    habit: 'Dancing',
+    category: 'Fun',
+    color: '#F0A22C',
+    progress: 60,
+  },
+  {
+    id: '4',
+    habit: 'Save money',
+    category: 'Money',
+    color: '#ECF02C',
+    progress: 70,
+  },
+  {
+    id: '5',
+    habit: 'I love you',
+    category: 'Family',
+    color: '#F02C38',
+    progress: 30,
+  },
+  {
+    id: '6',
+    habit: 'Prayer',
+    category: 'Spirituality',
+    color: '#2CF0D8',
+    progress: 20,
+  },
+  {
+    id: '7',
+    habit: 'Networking',
+    category: 'Career',
+    color: '#2C63F0',
+    progress: 50,
+  },
+  {
+    id: '8',
+    habit: 'Act of kindness',
+    category: 'Relationships',
+    color: '#F02CAD',
+    progress: 80,
+  },
 ];
-
-// '1',
-// 'Take a walk',
-// 'https://cdn.pixabay.com/photo/2015/03/26/10/36/wood-691629__340.jpg',
-// 'Health',
-// 1,
-// 22,
-// 'Walking is a great way to improve or maintain your overall health. Just
-// 30 minutes every day can increase cardiovascular fitness, strengthen
-// bones, reduce excess body fat, and boost muscle power and endurance.
-// It can also reduce your risk of developing conditions such as
-// heart disease, type 2 diabetes, osteoporosis and some cancers.
-// Unlike some other forms of exercise, walking is free and doesn’t
-// require any special equipment or training.',
 
 const Home = () => {
   // const precentage = 40;
@@ -43,7 +83,10 @@ const Home = () => {
     //   {/* <CircleProgresBar percentage={75} /> */}
     // </View>
     <View style={styles.container}>
-      <FlatList data={userHabits} renderItem={({item}) => <UserHabitItem />} />
+      <FlatList
+        data={userHabits}
+        renderItem={({item}) => <UserHabitItem item={item} />}
+      />
     </View>
     // <Text>Home</Text>
   );

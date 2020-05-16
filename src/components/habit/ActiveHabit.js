@@ -34,6 +34,7 @@ const ActiveHabit = props => {
         <View style={styles.headerCard}>
           <Text style={styles.habitName}>{props.habit.name}</Text>
           <MaterialIcons name="bell-outline" size={30} />
+          {/* <MaterialIcons name="bell-off-outline" size={30} /> */}
         </View>
         <View style={styles.weekDays}>
           <FlatList

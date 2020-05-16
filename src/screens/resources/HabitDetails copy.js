@@ -184,9 +184,9 @@ const HabitDetails = ({props, navigation}) => {
 
 const styles = StyleSheet.create({
   fill: {
-    // backgroundColor: 'transparent',
-    // elevation: 2,
-    // position: 'relative',
+    backgroundColor: 'transparent',
+    elevation: 30,
+    position: 'relative',
   },
   header: {
     position: 'absolute',
@@ -199,6 +199,8 @@ const styles = StyleSheet.create({
   },
   goBack: {
     height: 32,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     alignItems: 'flex-start',
     position: 'absolute',
     top: 5,
@@ -215,11 +217,13 @@ const styles = StyleSheet.create({
     right: 0,
     width: null,
     height: HEADER_MAX_HEIGHT,
-    resizeMode: 'cover',
-    elevation: 10,
+    // resizeMode: 'cover',
   },
   textBar: {
+    // backgroundColor: 'transparent',
+    // backgroundColor: 'pink',
     marginTop: 28,
+    // marginTop: 40,
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
@@ -233,6 +237,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     color: 'white',
     position: 'absolute',
+    // bottom: 16,
     top: 40,
     left: 40,
   },
@@ -243,6 +248,8 @@ const styles = StyleSheet.create({
     marginTop: 28,
   },
   button: {
+    // backgroundColor: 'transparent',
+    // marginTop: HEADER_MAX_HEIGHT,
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
@@ -250,7 +257,6 @@ const styles = StyleSheet.create({
     top: HEADER_MAX_HEIGHT - 32 / 2,
     left: 0,
     right: 0,
-    // elevation: 10,
   },
   habitInfo: {
     height: 800,
@@ -259,10 +265,17 @@ const styles = StyleSheet.create({
     paddingTop: HEADER_MAX_HEIGHT,
   },
   contentContainer: {
+    // marginTop: HEADER_MAX_HEIGHT + 20,
+    // marginTop: 10,
+    // borderTopLeftRadius: 40,
+
+    // backgroundColor: 'transparent',
+    // padding: 36,
     backgroundColor: 'white',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    marginTop: HEADER_MAX_HEIGHT,
+    marginTop: HEADER_MAX_HEIGHT - 20,
+    // margin:20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     // elevation: 10,
@@ -270,7 +283,9 @@ const styles = StyleSheet.create({
   },
   details: {
     flexDirection: 'row',
+    // alignItems: 'center',
     justifyContent: 'space-around',
+    // height: '15%',
     paddingTop: 30,
   },
   stats: {
@@ -280,6 +295,13 @@ const styles = StyleSheet.create({
   description: {
     marginHorizontal: 20,
   },
+  // row: {
+  //   height: 40,
+  //   margin: 16,
+  //   backgroundColor: '#D3D3D3',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
 });
 
 export default HabitDetails;
