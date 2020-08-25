@@ -1,22 +1,23 @@
-import React, {useState, useEffect} from 'react';
-import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import RadioButton from './RadioButton';
-import CATEGORIES from '../../state/data/categories';
+import RadioButton from '../../../../utils/testing components/CategoryButton';
+import CategoryButton from './CategoryButton';
 
-const RadioButtons = props => {
+const CategoryButtons = props => {
   const [selected, setSelected] = useState();
 
-  console.log(selected);
+  // if there is no color prop use default color function
+  // console.log(selected);
   return (
     <View>
       <FlatList
         style={styles.categories}
-        data={CATEGORIES}
+        data={props.categories}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
-          <RadioButton
+          <CategoryButton
             name={item.name}
             icon={item.icon}
             color={item.color}
@@ -35,4 +36,4 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default RadioButtons;
+export default CategoryButtons;

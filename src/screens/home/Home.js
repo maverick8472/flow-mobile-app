@@ -1,7 +1,16 @@
-import React from 'react';
-import {View, Text, StyleSheet, Image, Switch, FlatList} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Modal,
+  Switch,
+  FlatList,
+  Platform,
+} from 'react-native';
 import CircleProgresBar from '../../components/ui/CircleProgres';
-import CircleButton from '../../components/ui/CircleButton';
+import CircleButton from '../../components/ui/Buttons/CircleButton';
 import HabitButton from '../../components/ui/HabitButton';
 import UserHabitItem from '../../components/habit/UserHabitItem';
 import CategoryPieChart from '../../components/ui/CategoryPieChart';
@@ -10,10 +19,17 @@ import CategoryListItem from '../../components/ui/CategoryListItem';
 import Card from '../../components/ui/Card';
 import {TextInput} from 'react-native-gesture-handler';
 import CategoryItem from '../../components/habit/CategoryItemPick';
-import RadioButtons from '../../components/ui/RadioButtons2';
+import RadioButtons from '../../components/ui/Selectors/RadioButtons/CategoryButtons';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../../components/ui/Button';
+import CheckList from '../../components/ui/Selectors/Checkers/CheckList';
+import RadioButtons2 from '../../components/ui/Selectors/RadioButtons/CheckInButtons';
+import RadioButtons3 from '../../utils/testing components/RadioButtons3';
+import CheckInButtons from '../../components/ui/Selectors/RadioButtons/CheckInButtons';
+import CategoryButtons from '../../components/ui/Selectors/RadioButtons/CategoryButtons';
+
+import TimePicker from '@react-native-community/datetimepicker';
 
 const userHabits = [
   {
@@ -75,7 +91,6 @@ const userHabits = [
 ];
 
 const Home = () => {
-  // const precentage = 40;
   return (
     // <View style={styles.container}>
     //   {/* <Text>Home</Text> */}
@@ -88,7 +103,6 @@ const Home = () => {
         renderItem={({item}) => <UserHabitItem item={item} />}
       />
     </View>
-    // <Text>Home</Text>
   );
 };
 
@@ -97,23 +111,30 @@ const Home = () => {
 //   habitButton: {},
 // });
 
+// const styles = StyleSheet.create({
+//   container: {
+//     flexDirection: 'row',
+//     // padding: ,
+//   },
+//   categoriesList: {
+//     width: '40%',
+//   },
+//   categoryProgress: {
+//     // justifyContent: 'space-around',
+//     // alignItems: 'center',
+//     width: '60%',
+//   },
+
+//   image: {
+//     width: '100%',
+//     height: '100%',
+//   },
+// });
+
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    // padding: ,
-  },
-  categoriesList: {
-    width: '40%',
-  },
-  categoryProgress: {
-    // justifyContent: 'space-around',
-    // alignItems: 'center',
-    width: '60%',
-  },
-
-  image: {
-    width: '100%',
-    height: '100%',
+    // paddingVertical: 5,
+    // marginVertical: 5,
   },
 });
 

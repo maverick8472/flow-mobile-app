@@ -3,13 +3,14 @@ import {View, Text, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const RadioButton = props => {
+const CategoryButton = props => {
   const caegorySwitcher = () => {
     if (props.selected === props.name && props.icon === '') {
       return (
-        <Text style={{...styles.selected, backgroundColor: props.color}}>
-          {props.name}
-        </Text>
+        // <Text style={{...styles.selected, backgroundColor: props.color}}>
+        //   {props.name}
+        // </Text>
+        <Text style={styles.selected}>{props.name}</Text>
       );
     } else if (props.selected === props.name) {
       return (
@@ -28,7 +29,11 @@ const RadioButton = props => {
   };
 
   return (
-    <View style={{...styles.habit, borderColor: props.color}}>
+    <View
+      style={{
+        ...styles.habit,
+        borderColor: props.color,
+      }}>
       <View style={styles.touchable}>
         <TouchableOpacity
           style={styles.button}
@@ -47,6 +52,7 @@ const styles = StyleSheet.create({
     // width: 40,
     borderWidth: 1,
     borderRadius: 20,
+    // backgroundColor: 'red',
   },
   actions: {
     padding: 5,
@@ -64,7 +70,11 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-around',
     // backgroundColor: ,
     color: 'white',
+    // backgroundColor:'pink',
+    borderRadius: 20,
+    // backgroundColor: 'blue',
+    // borderWidth: 10,
   },
 });
 
-export default RadioButton;
+export default CategoryButton;

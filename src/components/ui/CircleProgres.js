@@ -41,6 +41,7 @@ const CircleProgresBar = ({props, percentage}) => {
       easing: Easing.linear,
     }).start();
     // console.log(animation);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [percentage]);
 
   // const α = interpolate(animation, {

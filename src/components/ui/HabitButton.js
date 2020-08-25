@@ -1,10 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import CircleProgresBar from './CircleProgres';
-import CircleButton from './CircleButton';
+import CircleButton from './Buttons/CircleButton';
 
 const HabitButton = props => {
-  
   return (
     <View style={styles.container}>
       <View style={styles.progresBar}>

@@ -1,8 +1,13 @@
 import React from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import ActiveHabit from '../../components/habit/ActiveHabit';
+import {useSelector} from 'react-redux';
+
+import CATEGORIES from '../../state/data/categories';
 
 const ActiveHabits = props => {
+  const userHabits = useSelector(state => state.habits.userHabits);
+
   const habits = [
     {
       id: '1',
@@ -46,6 +51,7 @@ const styles = StyleSheet.create({
   container: {
     // alignItems: 'center',
     // justifyContent: 'space-around',
+    paddingVertical: 5,
   },
 });
 

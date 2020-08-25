@@ -4,23 +4,20 @@ import {useSelector} from 'react-redux';
 import HabitItem from '../../components/habit/HabitItem';
 import Button from '../../components/ui/Button';
 import CategoryItem from '../../components/habit/CategoryItem';
-import CATEGORIES from '../../state/data/categories';
 
-const Habits = ({props, navigation}) => {
-  const habits = useSelector(state => state.habits.availableHabits);
-  // console.log(habits);
+const Habits = ({props}) => {
   return (
     <View style={styles.container}>
       <FlatList
         style={styles.categories}
-        data={CATEGORIES}
+        data={props.categories}
         horizontal={true}
         renderItem={({item}) => (
           <CategoryItem name={item.name} icon={item.icon} color={item.color} />
         )}
       />
       <FlatList
-        data={habits}
+        data={props.habits}
         renderItem={({item}) => (
           <HabitItem
             name={item.name}
@@ -28,22 +25,8 @@ const Habits = ({props, navigation}) => {
             category={item.category}
             dificulty={item.dificulty}
             daysToForm={item.daysToForm}
-            instructions={item.instructions}
-            onSelect={() => {}}>
-            {/* <Button
-            title="View Details"
-            color={Colors.primary}
-            onPress={() => {}}
-          /> */}
-            <Button
-              text="View Details"
-              onPress={() => {
-                navigation.navigate('HabitDetails', {
-                  area: item.name,
-                  area_id: item.id,
-                });
-              }}
-            />
+            instructions={item.instructions}>
+            <Button text="View Details" />
             <Button text="Add Habit" />
           </HabitItem>
         )}
@@ -54,9 +37,7 @@ const Habits = ({props, navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // alignItems: 'center',
-    // justifyContent: 'space-around',
-    flex: 1, // Ne kuzin zasto
+    flex: 1,
   },
   categories: {
     paddingBottom: 5,

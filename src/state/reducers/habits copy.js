@@ -16,9 +16,13 @@ export default (state = initialHabitsState, action) => {
         action.habitData.userId,
         action.habitData.categoryId,
         action.habitData.name,
+        action.habitData.date,
+        action.habitData.reminder,
+        action.habitData.logs,
       );
       return {
         ...state,
+        // userProducts: state.userProducts.concat(newProduct),
         userHabits: state.userHabits.concat(newHabit),
       };
     case UDPATE_HABIT:
@@ -30,6 +34,8 @@ export default (state = initialHabitsState, action) => {
         state.userHabits[habitIndex].userId,
         action.habitData.categoryId,
         action.habitData.name,
+        state.userHabits[habitIndex].date,
+        state.userHabits[habitIndex].logs,
       );
       const updatedUserHabits = [...state.userHabits];
       updatedUserHabits[habitIndex] = updatedHabit;

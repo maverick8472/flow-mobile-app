@@ -17,6 +17,7 @@ export default function HomeNav({navigation}) {
       <Stack.Screen
         name="Home"
         options={{
+          headerStyle: {height: 50},
           headerTitle: () => null,
           headerLeft: () => {
             return (
@@ -35,7 +36,7 @@ export default function HomeNav({navigation}) {
                 style={styles.rightIconContainer}
                 onPress={() => navigation.navigate('Settings')}>
                 <Text>
-                  <FontAwesome name="cog" size={30} style={styles.icon} />
+                  <FontAwesome name="cog" size={25} style={styles.icon} />
                 </Text>
               </TouchableOpacity>
             );

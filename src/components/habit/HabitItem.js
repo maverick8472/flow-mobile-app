@@ -57,7 +57,9 @@ const HabitItem = props => {
 const styles = StyleSheet.create({
   habit: {
     height: 300,
-    margin: 10,
+    // margin: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
   },
   touchable: {
     borderRadius: 10,

@@ -36,7 +36,8 @@ const UserHabitItem = props => {
 const styles = StyleSheet.create({
   userHabit: {
     // height: 300,
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
   },
   container: {
     flexDirection: 'row',

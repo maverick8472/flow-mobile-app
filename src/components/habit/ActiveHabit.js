@@ -9,6 +9,7 @@ import {
 import Card from '../ui/Card';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HabitButton from '../ui/HabitButton';
+import IconButton from '../ui/Buttons/IconButton';
 
 // id: '1',
 // name: 'Meditaion',
@@ -33,8 +34,14 @@ const ActiveHabit = props => {
       <View style={styles.container}>
         <View style={styles.headerCard}>
           <Text style={styles.habitName}>{props.habit.name}</Text>
-          <MaterialIcons name="bell-outline" size={30} />
+          {/* <MaterialIcons name="bell-outline" size={30} /> */}
+          {/* <MaterialIcons name="bell-outline" size={30} /> */}
           {/* <MaterialIcons name="bell-off-outline" size={30} /> */}
+          <View style={styles.habitIcons}>
+            <IconButton name={'chart-bar'} color={props.habit.color} />
+            {/* <IconButton name={'bell-outline'} color={props.habit.color} /> */}
+            <IconButton name={'pencil'} color={props.habit.color} />
+          </View>
         </View>
         <View style={styles.weekDays}>
           <FlatList
@@ -59,7 +66,8 @@ const ActiveHabit = props => {
 
 const styles = StyleSheet.create({
   activeHabit: {
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
   },
   container: {},
   headerCard: {
@@ -72,6 +80,9 @@ const styles = StyleSheet.create({
   habitName: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  habitIcons: {
+    flexDirection: 'row',
   },
   weekDays: {
     flexDirection: 'row',
