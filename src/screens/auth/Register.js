@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     // flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: -30,
+    // marginVertical: -30,
+    // marginVertical: 40,
     flexDirection: 'row',
   },
   signupText: {

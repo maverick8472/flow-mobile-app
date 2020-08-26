@@ -6,3 +6,7 @@ github instructions
 4. git commit -m "commit text"
 5. git push origin "branch name" - push files to that branch
 6. git checkout "branch name" - swith to branch
+
+
+
+localhost test url: http://192.168.1.4:3000

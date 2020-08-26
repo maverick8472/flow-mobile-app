@@ -2,7 +2,6 @@ import React from 'react';
 import {
   createStackNavigator,
   CardStyleInterpolators,
-  TransitionPresets,
 } from '@react-navigation/stack';
 import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';

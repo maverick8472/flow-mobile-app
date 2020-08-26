@@ -1,18 +1,117 @@
-import React from 'react';
+import React, {useReducer, useCallback} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import AuthInput from '../../ui/Inputs/AuthInput';
 import AuthButton from '../Buttons/AuthButton';
 
-// main color #3585BA
-// 30% black for links
+import {useDispatch} from 'react-redux';
+import * as authActions from '../../../state/actions/auth';
+
+const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+
+const formReducer = (state, action) => {
+  if (action.type === FORM_INPUT_UPDATE) {
+    const updatedValues = {
+      ...state.inputValues,
+      [action.input]: action.value,
+    };
+    const updatedValidities = {
+      ...state.inputValidities,
+      [action.input]: action.isValid,
+    };
+    let updatedFormIsValid = true;
+    for (const key in updatedValidities) {
+      updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
+    }
+    return {
+      formIsValid: updatedFormIsValid,
+      inputValidities: updatedValidities,
+      inputValues: updatedValues,
+    };
+  }
+  return state;
+};
 
 const RegisterForm = props => {
+  const dispatch = useDispatch();
+
+  const [formState, dispatchFormState] = useReducer(formReducer, {
+    inputValues: {
+      username: '',
+      email: '',
+      password: '',
+    },
+    inputValidities: {
+      username: false,
+      email: false,
+      password: false,
+    },
+    formIsValid: false,
+  });
+
+  const signupHandler = () => {
+    dispatch(
+      authActions.signUp(
+        // console.log(formState),
+        formState.inputValues.username,
+        formState.inputValues.email,
+        formState.inputValues.password,
+      ),
+    );
+  };
+
+  const inputChangeHandler = useCallback(
+    (inputIdentifier, inputValue, inputValidity) => {
+      dispatchFormState({
+        type: FORM_INPUT_UPDATE,
+        value: inputValue,
+        isValid: inputValidity,
+        input: inputIdentifier,
+      });
+    },
+    [dispatchFormState],
+  );
+
   return (
     <View style={styles.container}>
-      <AuthInput padding={12} placeholder={'Username'} />
-      <AuthInput keyboardType={'email-address'} placeholder={'Email'} />
-      <AuthInput secureTextEntry={true} padding={12} placeholder={'Password'} />
-      <AuthButton text={'Register'} />
+      <AuthInput
+        id="username"
+        required
+        username
+        keyboardType="default"
+        placeholder={'Username'}
+        autoCapitalize="none"
+        errorText="Please enter a valid username."
+        onInputChange={inputChangeHandler}
+        initialValue=""
+        padding={12}
+        minLength={5}
+      />
+      <AuthInput
+        id="email"
+        required
+        email
+        keyboardType={'email-address'}
+        placeholder={'Email'}
+        autoCapitalize="none"
+        errorText="Please enter a valid email address."
+        onInputChange={inputChangeHandler}
+        initialValue=""
+      />
+      <AuthInput
+        id="password"
+        required
+        password
+        keyboardType="default"
+        secureTextEntry={true}
+        padding={12}
+        placeholder={'Password'}
+        minLength={5}
+        autoCapitalize="none"
+        errorText="Please enter a valid password."
+        onInputChange={inputChangeHandler}
+        initialValue=""
+      />
+      <AuthButton text={'Register'} onPress={signupHandler} />
     </View>
   );
 };
