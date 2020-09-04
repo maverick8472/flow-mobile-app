@@ -8,7 +8,7 @@ import Register from '../screens/auth/Register';
 
 const Auth = createStackNavigator();
 
-export default function MainNav() {
+export default function AuthNav() {
   return (
     <Auth.Navigator
       initialRouteName="Login"

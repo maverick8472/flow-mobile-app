@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     // borderRadius: 8,
     // paddingVertical: 10,
-    // paddingHorizontal: 10,
+    paddingHorizontal: 2,
   },
 });
 

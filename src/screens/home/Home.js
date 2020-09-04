@@ -31,6 +31,9 @@ import CategoryButtons from '../../components/ui/Selectors/RadioButtons/Category
 
 import TimePicker from '@react-native-community/datetimepicker';
 
+import * as authActions from '../../state/actions/auth';
+import {useDispatch} from 'react-redux';
+
 const userHabits = [
   {
     id: '1',
@@ -90,14 +93,38 @@ const userHabits = [
   },
 ];
 
-const Home = () => {
+const Home = ({props, navigation}) => {
+  const dispatch = useDispatch();
+
   return (
     // <View style={styles.container}>
     //   {/* <Text>Home</Text> */}
     //   {/* <HabitButton style={styles.habitButton} /> */}
     //   {/* <CircleProgresBar percentage={75} /> */}
     // </View>
+
     <View style={styles.container}>
+      <Button
+        text="Logout"
+        onPress={() => {
+          // implement logout
+          dispatch(authActions.logout());
+        }}
+      />
+      <Button
+        text="HabitStats"
+        onPress={() => {
+          // implement logout
+          navigation.navigate('UserHabit');
+        }}
+      />
+      <Button
+        text="Profile"
+        onPress={() => {
+          // implement logout
+          navigation.navigate('Profile');
+        }}
+      />
       <FlatList
         data={userHabits}
         renderItem={({item}) => <UserHabitItem item={item} />}

@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 const AuthButton = props => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} {...props}>
       <TouchableOpacity style={styles.button} onPress={props.onPress}>
         <Text style={styles.buttonText}>{props.text}</Text>
       </TouchableOpacity>

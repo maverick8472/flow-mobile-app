@@ -7,6 +7,12 @@ import Card from '../../components/ui/Card';
 import StackedChart from '../../components/ui/StackedAreaChart';
 import SingleAreaChart from '../../components/ui/AreaChart';
 
+import {StackedBarChart} from 'react-native-chart-kit';
+
+import {Dimensions} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+const screenWidth = Dimensions.get('window').width;
+
 const keys = [
   'Health',
   'Mind / Emo',
@@ -35,6 +41,28 @@ const colors = [
 //   {category: 'Health', color: '#50D25D', values: []}
 // ]
 
+const data = {
+  labels: ['Health', 'Relationships'],
+  // legend: ['L1', 'L2', 'L3'],
+  data: [[60, 60, 60], [30, 30, 60], [45, 28, 32], [32, 26, 41], [57, 85, 34]],
+  barColors: ['#50D25D', '#F05B2C', '#F02CAD'],
+};
+const chartConfig = {
+  // backgroundGradientFrom: '#1E2923',
+  // backgroundGradientFromOpacity: 0,
+  // backgroundGradientTo: '#08130D',
+  // backgroundGradientToOpacity: 0.5,
+  // color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  color: (opacity = 1) => `rgba(86, 102, 243, ${opacity})`,
+  // color: 'pink',
+  backgroundColor: 'white',
+  backgroundGradientFrom: 'white',
+  backgroundGradientTo: 'white',
+  strokeWidth: 2, // optional, default 3
+  barPercentage: 0.5,
+  useShadowColorFromDataset: false, // optional
+};
+
 const WeeklyProgess = props => {
   const [isCategory, setCategory] = useState();
 
@@ -43,7 +71,7 @@ const WeeklyProgess = props => {
   };
 
   return (
-    <View>
+    <ScrollView>
       <Card style={styles.container}>
         {/* <Text>WeeklyProgess</Text> */}
         <View style={styles.categoriesList}>
@@ -78,7 +106,16 @@ const WeeklyProgess = props => {
       <Card style={styles.categoryChart}>
         <SingleAreaChart data={values} />
       </Card>
-    </View>
+
+      <Card style={styles.categoryChart}>
+        <StackedBarChart
+          data={data}
+          width={screenWidth}
+          height={220}
+          chartConfig={chartConfig}
+        />
+      </Card>
+    </ScrollView>
   );
 };
 

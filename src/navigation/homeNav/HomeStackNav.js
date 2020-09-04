@@ -9,6 +9,8 @@ import {Text} from 'react-native';
 import Home from '../../screens/home/Home';
 import Settings from '../../screens/home/Settings';
 import Calendar from '../../screens/home/Calendar';
+import userHabit from '../../screens/habits/UserHabitDetails';
+import Profile from '../../screens/auth/Profile';
 
 const Stack = createStackNavigator();
 export default function HomeNav({navigation}) {
@@ -43,6 +45,20 @@ export default function HomeNav({navigation}) {
           },
         }}
         component={Home}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="UserHabit"
+        component={userHabit}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Profile"
+        component={Profile}
       />
       <Stack.Screen name="Settings" component={Settings} />
       <Stack.Screen

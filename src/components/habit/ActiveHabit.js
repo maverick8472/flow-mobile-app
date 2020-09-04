@@ -38,9 +38,26 @@ const ActiveHabit = props => {
           {/* <MaterialIcons name="bell-outline" size={30} /> */}
           {/* <MaterialIcons name="bell-off-outline" size={30} /> */}
           <View style={styles.habitIcons}>
-            <IconButton name={'chart-bar'} color={props.habit.color} />
-            {/* <IconButton name={'bell-outline'} color={props.habit.color} /> */}
-            <IconButton name={'pencil'} color={props.habit.color} />
+            <IconButton
+              style={styles.habitIcon}
+              name={'chart-bar'}
+              color={props.habit.color}
+            />
+            <IconButton
+              style={styles.habitIcon}
+              name={'bell-outline'}
+              color={props.habit.color}
+            />
+            <IconButton
+              style={styles.habitIcon}
+              name={'pencil'}
+              color={props.habit.color}
+            />
+            <IconButton
+              style={styles.habitIcon}
+              name={'delete'}
+              color={props.habit.color}
+            />
           </View>
         </View>
         <View style={styles.weekDays}>

@@ -8,6 +8,7 @@ import Habits from '../screens/resources/Habits';
 import HomeNav from './homeNav/HomeStackNav';
 import HabitsNav from './habitsNav/HabitsTopNav';
 import ResourcesNav from './resourcesNav/ResourcesNav';
+import userHabit from '../screens/habits/UserHabitDetails';
 
 const Main = createBottomTabNavigator();
 

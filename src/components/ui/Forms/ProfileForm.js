@@ -30,7 +30,7 @@ const formReducer = (state, action) => {
   return state;
 };
 
-const LoginForm = (props, navigation) => {
+const ProfileForm = (props, navigation) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -67,6 +67,7 @@ const LoginForm = (props, navigation) => {
     } catch (err) {
       setError(err.message);
     }
+
     setIsLoading(false);
   };
 
@@ -83,6 +84,18 @@ const LoginForm = (props, navigation) => {
   );
   return (
     <View style={styles.container}>
+      <AuthInput
+        id="username"
+        required
+        email
+        keyboardType={'email-address'}
+        placeholder={'Username'}
+        autoCapitalize="none"
+        errorText="Please enter a valid email address."
+        onInputChange={inputChangeHandler}
+        initialValue=""
+        padding={12}
+      />
       <AuthInput
         id="email"
         required
@@ -108,11 +121,25 @@ const LoginForm = (props, navigation) => {
         onInputChange={inputChangeHandler}
         initialValue=""
       />
+      <AuthInput
+        id="re-password"
+        required
+        password
+        keyboardType="default"
+        secureTextEntry={true}
+        placeholder={'Re-Typed Password'}
+        minLength={5}
+        autoCapitalize="none"
+        errorText="Please enter a valid password."
+        onInputChange={inputChangeHandler}
+        initialValue=""
+      />
       {isLoading ? (
-        <ActivityIndicator size="large" color={'#2774b8'} />
+        <ActivityIndicator padding={12} size="large" color={'#2774b8'} />
       ) : (
-        <AuthButton text={'Login'} onPress={signinHandler} />
+        <AuthButton padding={12} text={'Update'} onPress={signinHandler} />
       )}
+      <AuthButton text={'Logout'} onPress={signinHandler} />
     </View>
   );
 };
@@ -126,7 +153,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 16,
+    marginTop: -50,
   },
 });
 
-export default LoginForm;
+export default ProfileForm;
